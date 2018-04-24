@@ -6,8 +6,8 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 	"log"
-	"todo_proto/pb/proto"
-	service2 "todo_grpc_hello/service"
+	"github.com/dnivra26/todo_proto/pb/proto"
+	service2 "github.com/dnivra26/todo_grpc_hello/service"
 
 )
 
