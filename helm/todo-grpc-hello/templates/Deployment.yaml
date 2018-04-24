@@ -22,3 +22,24 @@ spec:
           - containerPort: 7778
             protocol: TCP
             name: grpc
+      - name: envoy
+        image: envoyproxy/envoy:latest
+        ports:
+          - containerPort: 9901
+            protocol: TCP
+            name: envoy-admin
+          - containerPort: 8787
+            protocol: TCP
+            name: envoy-grpc
+        volumeMounts:
+          - name: envoy-config-volume
+            mountPath: /etc/envoy-config/
+        command: ["/usr/local/bin/envoy"]
+        args: ["-c", "/etc/envoy-config/config.yaml", "--v2-config-only", "-l", "debug","--service-cluster","cluster","--service-node","node"]
+      volumes:
+        - name: envoy-config-volume
+          configMap:
+            name: envoy-config
+            items:
+              - key: config
+                path: config.yaml
