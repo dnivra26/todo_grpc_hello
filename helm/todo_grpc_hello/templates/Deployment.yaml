@@ -1,0 +1,20 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: todo-grpc-hello
+  namespace: todo-grpc-hello
+  labels:
+    app: todo-grpc-hello
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: todo-grpc-hello
+  template:
+    metadata:
+      labels:
+        app: todo-grpc-hello
+    spec:
+      containers:
+      - name: todo-grpc-hello
+        image: dnivra26/todo_grpc_hello:0.1

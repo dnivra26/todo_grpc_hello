@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: todo-grpc-hello
+  namespace: todo-grpc-hello
+spec:
+  selector:
+    app: todo-grpc-hello
+  ports:
+  - protocol: TCP
+    port: 7778
+    targetPort: 7778
