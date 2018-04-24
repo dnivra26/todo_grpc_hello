@@ -18,3 +18,7 @@ spec:
       containers:
       - name: todo-grpc-hello
         image: dnivra26/todo_grpc_hello:0.1
+        ports:
+          - containerPort: 7778
+            protocol: TCP
+            name: grpc
